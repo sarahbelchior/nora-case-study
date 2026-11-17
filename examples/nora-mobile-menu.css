@@ -1,0 +1,36 @@
+/* Nora 3.0: gaveta de navegação para telas pequenas; mantém o menu do PC. */
+.nora-mobile-toggle,.nora-mobile-more{display:none}
+.nora-mobile-drawer{box-sizing:border-box;position:fixed;inset:0 auto 0 0;margin:0;width:min(88vw,350px);max-width:350px;max-height:100dvh;height:100dvh;border:0;border-radius:0 20px 20px 0;padding:0;background:var(--white,#fff);color:var(--ink,#28243d);box-shadow:5px 0 40px #211a4130;overflow:auto;overscroll-behavior:contain;z-index:10000}
+.nora-mobile-drawer::backdrop{background:rgba(24,18,46,.55)}
+.nora-drawer-head{position:sticky;top:0;z-index:1;background:var(--white,#fff);padding:20px 20px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border,#eee)}
+.nora-drawer-head strong{font-size:28px;letter-spacing:-1.5px;color:var(--purple,#7663d4)}
+.nora-drawer-head strong span:first-child{margin-right:8px}
+.nora-drawer-dot{color:#b39ce7}
+.nora-drawer-close,.nora-mobile-toggle{width:44px;height:44px;flex:0 0 44px;place-items:center;border:1px solid var(--border,#eee);background:var(--white,#fff);border-radius:12px;color:var(--ink,#28243d);font-size:20px}
+.nora-drawer-search-wrap{padding:18px 17px 10px}
+.nora-drawer-search-wrap label{display:block;font-size:12px;font-weight:750;margin-bottom:8px;color:var(--muted,#777)}
+.nora-drawer-search-wrap input{box-sizing:border-box;width:100%;height:46px;min-height:46px;border:1px solid var(--border,#ddd);border-radius:12px;background:var(--bg,#fafaff);padding:10px 13px;color:var(--ink,#28243d);font-size:14px}
+.nora-drawer-sections{padding:0 13px 15px}
+.nora-drawer-group{padding:10px 0;border-bottom:1px solid var(--border,#eee)}
+.nora-drawer-group h2{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted,#888);margin:8px 12px 10px}
+.nora-drawer-item{display:flex;align-items:center;gap:12px;text-align:left;width:100%;min-height:48px;border:0;border-radius:12px;background:transparent;color:var(--ink,#28243d);font-size:14px;font-weight:650;padding:11px 12px}
+.nora-drawer-item svg{width:19px;height:19px;flex:0 0 19px;color:var(--purple,#7663d4)}
+.nora-drawer-item:is(:hover,:focus-visible),.nora-drawer-item.active{background:var(--purple-light,#eee9ff);color:var(--purple,#7663d4)}
+.nora-drawer-empty,.nora-drawer-foot{color:var(--muted,#888);font-size:12px;margin:15px 22px;padding-bottom:20px}
+.nora-drawer-foot{text-align:center}
+@media(max-width:790px){
+  .topbar{gap:6px;padding-left:12px;padding-right:12px}
+  .topbar .breadcrumb{margin-right:auto;min-width:0}
+  .nora-mobile-toggle{display:grid}
+  .mobile-nav{overflow:visible!important;display:flex!important;justify-content:space-around!important;gap:0!important}
+  .mobile-nav>.mobile-link{display:none!important}
+  .mobile-nav>.mobile-link[data-view="today"],
+  .mobile-nav>.mobile-link[data-view="calendar"],
+  .mobile-nav>.mobile-link[data-view="assistant"],
+  .mobile-nav>.nora-mobile-more{display:flex!important;flex:1 1 25%;min-width:0!important;max-width:none!important;align-items:center;justify-content:center;padding:7px 2px;min-height:54px}
+  .nora-mobile-menu-icon{font-size:21px;line-height:19px}
+}
+@media(min-width:791px){.nora-mobile-drawer{display:none!important}}
+@media(prefers-reduced-motion:reduce){.nora-mobile-drawer{scroll-behavior:auto}}
+
+.nora-drawer-close{display:grid}
