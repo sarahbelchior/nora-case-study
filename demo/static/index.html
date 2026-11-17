@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7552cf"><meta name="description" content="Nora Demo: demonstração pública local de organização pessoal.">
+<title>Nora Demo — Organize seu dia</title>
+<link rel="stylesheet" href="/static/styles.css"><script src="/static/app.js" defer></script>
+</head><body>
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Menu principal">
+ <div class="brand"><span class="spark" aria-hidden="true">✳</span> nora<span class="dot">.</span><small>DEMONSTRAÇÃO</small></div>
+ <p class="eyebrow">ÁREAS</p>
+ <nav aria-label="Navegação">
+  <button class="nav-item active" data-view="today" aria-current="page"><span aria-hidden="true">⌂</span> Meu dia</button>
+  <button class="nav-item" data-view="agenda"><span aria-hidden="true">▦</span> Agenda</button>
+  <button class="nav-item" data-view="focus"><span aria-hidden="true">◉</span> Modo foco</button>
+  <button class="nav-item" data-view="about"><span aria-hidden="true">ⓘ</span> Sobre a demo</button>
+ </nav>
+ <div class="side-note">Protótipo para avaliação técnica.<br>Dados de exemplo • sem login</div>
+</aside>
+<div class="overlay" id="overlay" hidden></div>
+<main class="main">
+<header class="topbar"><button id="menu-toggle" class="icon-button" aria-label="Abrir menu" aria-expanded="false">☰</button><span class="brand-mini">✳ nora<span>.</span></span><span class="prototype">DEMO LOCAL</span></header>
+<div class="content">
+ <div class="intro"><div><span class="eyebrow purple">SEU ESPAÇO DE ORGANIZAÇÃO</span><h1 id="page-title">Meu dia</h1><p id="page-subtitle">Organize tarefas, acompanhe o progresso e faça uma pausa quando precisar.</p></div><div class="date-chip" id="today-label"></div></div>
+ <section data-panel="today">
+  <div class="stats" aria-label="Resumo de hoje">
+   <div class="stat"><span>Para hoje</span><strong id="total">0</strong><small>tarefas programadas</small></div>
+   <div class="stat"><span>Concluídas</span><strong id="done">0</strong><small>passos finalizados</small></div>
+   <div class="stat accent"><span>Seu progresso</span><strong id="progress">0%</strong><small>um passo de cada vez ✨</small></div>
+  </div>
+  <div class="columns"><section class="panel" aria-labelledby="today-tasks-title"><div class="panel-head"><h2 id="today-tasks-title">Tarefas de hoje</h2><span class="pill">Sua rotina</span></div><div id="today-tasks" class="task-list" aria-live="polite"></div></section>
+  <section class="panel panel-create" aria-labelledby="create-title"><div class="panel-head"><h2 id="create-title">Adicionar tarefa</h2></div><form id="task-form"><label for="title">O que você deseja fazer?</label><input id="title" maxlength="120" required placeholder="Ex.: Revisar estudos por 30 minutos"/><label for="category">Categoria</label><select id="category"><option value="pessoal">Pessoal</option><option value="estudos">Estudos</option><option value="rotina">Rotina</option></select><label for="due">Data</label><input type="date" id="due" required/><button class="primary" type="submit">+ Adicionar à rotina</button></form><p class="hint">As tarefas são salvas somente no banco local da demonstração.</p></section></div>
+ </section>
+ <section data-panel="agenda" hidden><div class="panel"><div class="panel-head"><h2>Suas tarefas</h2><span class="pill">Todas as datas</span></div><div id="all-tasks" class="task-list" aria-live="polite"></div></div></section>
+ <section data-panel="focus" hidden><div class="panel focus-box"><span class="eyebrow purple">PAUSA COM INTENÇÃO</span><h2>Modo foco</h2><p>Temporizador demonstrativo para estudar e realizar tarefas sem distrações.</p><div class="timer" id="timer" role="timer" aria-label="Tempo restante">25:00</div><div class="controls"><button class="primary" id="timer-toggle" type="button">Iniciar foco</button><button class="secondary" id="timer-reset" type="button">Reiniciar</button></div><p class="hint">O temporizador funciona nesta aba; notificações em segundo plano não fazem parte desta demo.</p></div></section>
+ <section data-panel="about" hidden><div class="panel about"><h2>Esta demonstração não é a Nora completa</h2><p>Este repositório apresenta um <strong>recorte público executável</strong> para avaliação de competências com Python, FastAPI, JavaScript, CSS, HTML, persistência SQLite, testes e interface responsiva.</p><p>O aplicativo Nora principal contém recursos adicionais de acessibilidade, rotina, APIs, organização e protótipo Android, documentados no README.</p><p><strong>Privacidade:</strong> esta demo não contém contas reais, dados de saúde, chaves, banco original ou integração Gemini. Ela é destinada apenas a execução local.</p><a href="/docs" target="_blank" rel="noopener">Explorar a documentação interativa da API ↗</a></div></section>
+ <footer>✳ Nora Demo • Projeto em desenvolvimento • <a href="https://github.com/sarahbelchior" rel="noopener" target="_blank">Sarah Belchior</a></footer>
+</div></main></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body></html>
